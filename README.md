@@ -1,6 +1,6 @@
 # Video Slides Forced Repatriation
-### Fullscreen video slides with silent loops and autoplay sequences
-### Version 2 - for story on forced reaptratied families
+## Fullscreen video slides with silent loops and autoplay sequences
+### Version 2 - for story on forced repatriated families
 
 The aim is to incoporate adaptive progress and timers and video subtitles
 Another feature is differentiated styles for the text overlays
