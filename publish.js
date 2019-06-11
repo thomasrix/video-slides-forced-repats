@@ -1,7 +1,8 @@
 const request = require('request')
 const fs = require('fs-extra');
 
-const sheetID = '1zHtoW9RRJFL3K-4tYee7Saa6Ut-9jTMaOvKsj-dqneM';
+// const sheetID = '1zHtoW9RRJFL3K-4tYee7Saa6Ut-9jTMaOvKsj-dqneM';
+const sheetID = '1LkG3bJy4y8CjCkWbZxgXKKJDQj8KXBXNskTx2ZW6VnY';
 const publishBase = 'https://uhdi8ydrv4.execute-api.eu-west-1.amazonaws.com/prod/build/data?spreadsheet=';
 
 // console.log(publishBase + sheetID);

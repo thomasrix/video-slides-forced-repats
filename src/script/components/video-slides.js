@@ -17,7 +17,7 @@ export default class VideoSlides{
         this.load();
     }
     load(){
-        fetchFile(process.env.LOCAL_ASSETS_PATH+'179d1041e088f907eacf244f8c589a80-videoslidessjlsmark-slides.json', (data)=>{
+        fetchFile(process.env.DATA_ASSETS_PATH + process.env.DATA_FILE, (data)=>{
             this.data = JSON.parse(data);
             this.build();
         })
