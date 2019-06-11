@@ -1,0 +1,36 @@
+[video-slides]{
+    .scroll-slide-wrapper{
+        .scroll-slide-container{
+            .video-loop{
+                width:100vw;
+                height:100vh;
+                object-fit: cover;
+            }
+            .video-clip{
+                width:100vw;
+                height:100vh;
+                object-fit: cover;
+            }
+            .scroll-slide-play-button{
+                position: absolute;
+                // background: rgba(0, 100, 0, 0.5);
+                font-family: 'gibsonRegular';
+                margin: 0 auto;
+                text-align: center;
+                // height:2em;
+                width:30%;
+                bottom:4em;
+                color:white;
+                font-size: 1.5em;
+                left:50%;
+                transform: translate(-50%, 0);
+                cursor: pointer;
+                svg{
+                    width:50%;
+                }
+                // line-height: 2em;
+            }
+
+        }
+    }
+}

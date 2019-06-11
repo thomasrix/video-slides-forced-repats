@@ -1,0 +1,133 @@
+@keyframes scrollMove{
+    from{transform:translateY(0%);}
+    to{transform:translateY(-30%);}
+}
+[video-slides]{
+    background: #000000;
+    .scroll-slide-wrapper{
+        position:fixed;
+        top:0;
+        width:100vw;
+        height:100vh;
+        overflow: scroll;
+        .scroll-slide-container{
+            background: #000000;
+            width:100vw;
+            height:100vh;
+            position: fixed;
+            opacity:0;
+            // display: none;
+            transition: visibility 0s, 300ms opacity ease-in-out;
+            visibility: hidden;
+            &.shown{
+                // display: block;
+                opacity:1;
+                visibility: visible;
+            }
+            &.fade{
+                opacity:0;
+                // display:none;
+                visibility: visible;
+            }
+            &:first-child{
+                opacity:1;
+                // display: block;
+                // visibility: visible;
+            }
+            .next-button-container{
+                // background: rgba(0, 0, 0, 0.2);
+                width:100%;
+                max-width: 600px;
+                left:50%;
+                transform: translateX(-50%);
+                height:25%;
+                position: absolute;
+                bottom:0;
+                cursor: pointer;
+            }
+            .scroll-slide-next-button{
+                width:100%;
+                text-align: center;
+                transition: opacity 2s ease-in-out;
+                position: absolute;
+                bottom:2.5em;
+                animation: scrollMove 1s ease-in-out infinite alternate;
+                &.start-next{
+                    bottom:5em;
+                }
+                svg{
+                    cursor: pointer;
+                    width:10%;
+                }
+                @media only screen and (min-width: 501px){
+                    svg{
+                        width:8%;
+                    }
+                }
+                @media only screen and (min-width: 768px){
+                    svg{
+                        width:5%;
+                    }
+                }
+                
+                // line-height: 2em;
+            } 
+            .test-slide-content{
+                color: white;
+                text-align: center;
+                font-family: 'gibsonSemibold';
+                font-size: 1.2em;
+                position: absolute;
+                top: 2%;
+                left: 2%;
+                // transform: translate(-50%, -50%);
+            }
+            .slide-text-content{
+                color: white;
+                font-family: 'gibsonSemibold';
+                position: absolute;
+                
+                &.normal{
+                    width: 80%;
+                    @media only screen and (min-width: 501px){
+                        width: 75%;
+                    }
+                    @media only screen and (min-width: 768px){
+                        width: 70%;
+                    }
+                    text-align: left;
+                    font-size: 1.4em;
+                    line-height: 1.3em;
+                    max-width: 500px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    
+                }
+                &.header{
+                    line-height: 1.15em;
+                    width: 60%;
+                    @media only screen and (min-width: 501px){
+                        width: 72%;
+                    }
+                    @media only screen and (min-width: 768px){
+                        width: 90%;
+                    }
+                    // width:100%;
+                    font-size: 1.6em;
+                    text-align: center;
+                    text-transform: uppercase;
+                    letter-spacing: 0.25em;
+                    top: 15%;
+                    left: 50%;
+                    transform: translate(-50%, -1%);
+                    .big-header{
+                        margin-top:0.25em;
+                        font-size: 3.2em;
+                        line-height: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+}

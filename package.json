@@ -1,0 +1,30 @@
+{
+  "name": "parceljs-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node deploy-script.js -t dev",
+    "stage": "node deploy-script.js -t stage",
+    "deploy": "node deploy-script.js -t deploy",
+    "publish": "node publish.js"
+  },
+  "keywords": [],
+  "author": "TRIX",
+  "license": "ISC",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "cssnano": "^4.1.10",
+    "fs-extra": "^7.0.0",
+    "glob-watcher": "^5.0.1",
+    "intersection-observer": "^0.6.0",
+    "node-sass": "^4.12.0",
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {}
+}
