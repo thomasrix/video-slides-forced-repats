@@ -35,7 +35,8 @@ export default class VideoLoop{
         this.videoSource = create('source', this.videoNode);
         
         if(this.element.text !== ''){
-            this.textContent = create('div', this.content, ['slide-text-content', this.element['text-type']]);
+            this.textContainer= create('div', this.content, 'slide-text-content')
+            this.textContent = create('div', this.textContainer, [this.element['text-type']]);
             this.textContent.innerHTML = replaceLineBreaks(this.element.text);
             if(this.element['text-size'] !== '0' ) this.adjustTextSize();
         }
@@ -67,7 +68,7 @@ export default class VideoLoop{
         this.textContent.style.fontSize = newSize+'em';
     }
     setSource(q){
-        let p = process.env.EXTERNAL_ASSETS_PATH;
+        let p = process.env.EXTERNAL_ASSETS_PATH + 'videos/';
         this.videoSource.src = (q.matches) ? p + this.element['desktop-video'] : p + this.element['mobil-video'];
         this.videoNode.load();
         this.hasSource = true;

@@ -84,25 +84,35 @@
             }
             .slide-text-content{
                 color: white;
-                font-family: 'gibsonSemibold';
+                font-family: 'gibsonRegular';
                 position: absolute;
-                
-                &.normal{
-                    width: 80%;
-                    @media only screen and (min-width: 501px){
-                        width: 75%;
-                    }
-                    @media only screen and (min-width: 768px){
-                        width: 70%;
-                    }
+                width: 80%;
+                max-width: 500px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                @media only screen and (min-width: 501px){
+                    width: 75%;
+                }
+                @media only screen and (min-width: 768px){
+                    width: 70%;
+                }
+                .normal{
                     text-align: left;
                     font-size: 1.4em;
                     line-height: 1.3em;
-                    max-width: 500px;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
                     
+                }
+                .quote{
+                    color:black;
+                    background: white;
+                    display:inline;
+                    text-align: left;
+                    font-size: 1.4em;
+                    line-height: 1.4em;
+                    padding:0.2em 0;
+                    box-shadow: 0.4em 0 0 white, -0.4em 0 0 white;
+                    box-decoration-break: clone; // fix needed for firefox;
                 }
                 &.header{
                     line-height: 1.15em;

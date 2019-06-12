@@ -42,7 +42,7 @@ export default class VideoClip{
         this.root.nextSlide(this.id);
     }
     setSource(q){
-        let p = process.env.EXTERNAL_ASSETS_PATH;
+        let p = process.env.EXTERNAL_ASSETS_PATH + 'videos/';
         this.videoSource.src = (q.matches) ? p + this.element['desktop-video'] : p + this.element['mobil-video'];
         this.videoNode.load();
         this.hasSource = true;

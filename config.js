@@ -5,7 +5,7 @@ let config = {
             DEBUGGING:true,
             DATA_ASSETS_PATH:'assets/',
             DATA_FILE:'208c1239ec5650a18ae1a1befc633f70-videoslidestvangshjemsendelse-slides.json',
-            EXTERNAL_ASSETS_PATH:'http://localhost:8888/boiler-test/stage/video-slides-external-assets/'
+            EXTERNAL_ASSETS_PATH:'http://localhost:8888/boiler-test/stage/video-slides-forced-repats-external-assets/'
             // EXTERNAL_ASSETS_PATH:'https://downol.dr.dk/download/nyheder/2019/video-slides-forced-repats/'
         }
     },
