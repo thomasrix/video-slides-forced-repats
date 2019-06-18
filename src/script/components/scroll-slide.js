@@ -22,14 +22,16 @@ export default class ScrollSlide{
         this.build();
     }
     build(){
+        if(this.element['mobil-bg-image'] !== '' || this.element['desktop-bg-image'] !== ''){
+            this.addPicture();
+        }
         this.displayContent = new this.types[this.element.type](this.id, this.wrapper, this.element, this.parent);
         this.shown = false;
         this.content  = this.displayContent.content;
 
-        if(this.element['mobil-bg-image'] !== '' || this.element['desktop-bg-image'] !== undefined){
-            console.log('this element has at least one image');
-            this.addPicture();
-        }
+        console.log('color', this.element['bg-color']);
+        if(this.element['bg-color'] !== '') this.content.style.backgroundColor = this.element['bg-color'];
+
 
         if(this.displayContent.soundVideo) this.parent.soundVideos.push(this.displayContent.videoNode);
         if(this.displayContent.hasVideo) this.parent.allVideoSlides.push(this);

@@ -18,9 +18,7 @@ export default class VideoLoop{
         this.build();
     }
     build(){
-        console.log('color', this.element['bg-color'])
         this.content = create('div', this.wrapper, 'scroll-slide-container');
-        this.content.style.backgroundColor = this.element.color;
         this.videoNode = create('video', this.content, 'video-loop');
         
         this.videoNode.setAttribute('playsinline', '');
@@ -42,9 +40,6 @@ export default class VideoLoop{
             if(this.element['text-size'] !== '0' ) this.adjustTextSize();
         }
         this.addNextButton();
-    }
-    addBackgroundImage(){
-
     }
     addNextButton(){
         // console.log('add next button', this.id);
