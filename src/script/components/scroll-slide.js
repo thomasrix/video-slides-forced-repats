@@ -26,6 +26,11 @@ export default class ScrollSlide{
         this.shown = false;
         this.content  = this.displayContent.content;
 
+        if(this.element['mobil-bg-image'] !== '' || this.element['desktop-bg-image'] !== undefined){
+            console.log('this element has at least one image');
+            this.addPicture();
+        }
+
         if(this.displayContent.soundVideo) this.parent.soundVideos.push(this.displayContent.videoNode);
         if(this.displayContent.hasVideo) this.parent.allVideoSlides.push(this);
         
@@ -35,6 +40,18 @@ export default class ScrollSlide{
         this.scrollController.object = this;
         this.scrollController.id = 's'+this.id;
         
+    }
+    addPicture(){
+        let p = create('picture', this.content, 'background-picture');
+        let ms = create('source', p);
+        ms.media = '(orientation: portrait)';
+        ms.srcset = `${process.env.EXTERNAL_ASSETS_PATH}images/${this.element['mobil-bg-image']}`;
+        let ds = create('source', p);
+        ds.media = '(orientation: landscape)';
+        ds.srcset = `${process.env.EXTERNAL_ASSETS_PATH}images/${this.element['desktop-bg-image']}`;
+        let i = create('img', p);
+        i.src = `${process.env.EXTERNAL_ASSETS_PATH}images/${this.element['desktop-bg-image']}`;
+
     }
     show(){
         this.content.classList.add('shown');
