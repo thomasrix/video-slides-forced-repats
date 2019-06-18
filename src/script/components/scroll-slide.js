@@ -4,6 +4,8 @@ import './scroll-slide.scss';
 import VideoLoop from './video-loop';
 import VideoClip from './video-clip';
 import TextSlide from './text-slide';
+import NormalText from './normal-text';
+import QuoteText from './quote-text';
 
 export default class ScrollSlide{
     constructor(id, wrapper, parent, element){
@@ -19,6 +21,12 @@ export default class ScrollSlide{
             'video-sync':VideoClip,
             'text-slide':TextSlide
         }
+        this.textTypes = {
+            'no-text':NormalText,
+            'normal':NormalText,
+            'header':NormalText,
+            'quote':QuoteText
+        }
         this.build();
     }
     build(){
@@ -30,13 +38,17 @@ export default class ScrollSlide{
         
         this.displayContent = new this.types[this.element.type](this.id, this.content, this.element, this.parent);
         this.shown = false;
-
+        
         console.log('color', this.element['bg-color']);
         if(this.element['bg-color'] !== '') this.content.style.backgroundColor = this.element['bg-color'];
-
-
+        
+        
         if(this.displayContent.soundVideo) this.parent.soundVideos.push(this.displayContent.videoNode);
         if(this.displayContent.hasVideo) this.parent.allVideoSlides.push(this);
+        
+        if(this.element.text !== ''){
+            this.addText();
+        }
         
         let scrollControlContainer = create('div', this.parent.container, 'scroll-control-container');
         this.scrollController = create('div', scrollControlContainer, 'scroll-controller');
@@ -56,15 +68,20 @@ export default class ScrollSlide{
         let i = create('img', p);
         i.src = `${process.env.EXTERNAL_ASSETS_PATH}images/${this.element['desktop-bg-image']}`;
     }
+    addText(){
+        this.textElement = new this.textTypes[this.element['text-type']](this.content, this.element);
+    }
     show(){
         this.content.classList.add('shown');
         this.shown = true;
         this.displayContent.show();
+        if(this.textElement !== undefined) this.textElement.show();
     }
     hide(){
         this.displayContent.hide();
         this.shown = false;
         this.content.classList.add('fade');
+        if(this.textElement !== undefined) this.textElement.hide();
         
         setTimeout(()=>{
             this.content.classList.remove('shown', 'fade')

@@ -101,7 +101,8 @@
                     text-align: left;
                     font-size: 1.4em;
                     line-height: 1.3em;
-                    
+                    opacity: 0;
+                    transition: 1000ms 500ms opacity ease-in-out;
                 }
                 .quote{
                     color:black;

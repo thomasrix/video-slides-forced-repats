@@ -1,6 +1,6 @@
 'use strict'
 
-import {create, replaceLineBreaks} from '../utils/trix';
+import {create} from '../utils/trix';
 import {downArrow} from './svgs';
 import './video.scss';
 
@@ -32,12 +32,6 @@ export default class VideoLoop{
         
         this.videoSource = create('source', this.videoNode);
         
-        if(this.element.text !== ''){
-            this.textContainer= create('div', this.content, 'slide-text-content')
-            this.textContent = create('div', this.textContainer, [this.element['text-type']]);
-            this.textContent.innerHTML = replaceLineBreaks(this.element.text);
-            if(this.element['text-size'] !== '0' ) this.adjustTextSize();
-        }
         this.addNextButton();
     }
     addNextButton(){
@@ -58,12 +52,6 @@ export default class VideoLoop{
                 if(this.root.startButton !== undefined) this.root.startButton.style.display = 'none';
             }
         });
-    }
-    adjustTextSize(){
-        const baseSize = 1.4;
-        const adjustSize = parseFloat(this.element['text-size']) *.2;
-        const newSize = (baseSize + adjustSize).toFixed(1);
-        this.textContent.style.fontSize = newSize+'em';
     }
     setSource(q){
         let p = process.env.EXTERNAL_ASSETS_PATH + 'videos/';
