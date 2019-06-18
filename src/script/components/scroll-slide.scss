@@ -114,6 +114,12 @@
                     padding:0.3em 0;
                     box-shadow: 0.4em 0 0 white, -0.4em 0 0 white;
                     box-decoration-break: clone; // fix needed for firefox;
+                    opacity: 1;
+                    transition: 1000ms 500ms opacity ease-in-out;
+                    &.ghost{
+                        position: absolute;
+                        visibility: hidden;
+                    }
                 }
                 .header{
                     position: absolute;
