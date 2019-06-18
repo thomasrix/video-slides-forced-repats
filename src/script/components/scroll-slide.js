@@ -22,12 +22,14 @@ export default class ScrollSlide{
         this.build();
     }
     build(){
+        this.content  = create('div', this.wrapper, 'scroll-slide-container');
+        
         if(this.element['mobil-bg-image'] !== '' || this.element['desktop-bg-image'] !== ''){
             this.addPicture();
         }
-        this.displayContent = new this.types[this.element.type](this.id, this.wrapper, this.element, this.parent);
+        
+        this.displayContent = new this.types[this.element.type](this.id, this.content, this.element, this.parent);
         this.shown = false;
-        this.content  = this.displayContent.content;
 
         console.log('color', this.element['bg-color']);
         if(this.element['bg-color'] !== '') this.content.style.backgroundColor = this.element['bg-color'];
@@ -53,7 +55,6 @@ export default class ScrollSlide{
         ds.srcset = `${process.env.EXTERNAL_ASSETS_PATH}images/${this.element['desktop-bg-image']}`;
         let i = create('img', p);
         i.src = `${process.env.EXTERNAL_ASSETS_PATH}images/${this.element['desktop-bg-image']}`;
-
     }
     show(){
         this.content.classList.add('shown');

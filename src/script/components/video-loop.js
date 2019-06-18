@@ -5,9 +5,9 @@ import {downArrow} from './svgs';
 import './video.scss';
 
 export default class VideoLoop{
-    constructor(id, wrapper, element, root){
+    constructor(id, content, element, root){
         this.id = id;
-        this.wrapper = wrapper;
+        this.content = content;
         this.element = element;
         this.hasVideo = true;
         this.firstPlay = true;
@@ -18,7 +18,6 @@ export default class VideoLoop{
         this.build();
     }
     build(){
-        this.content = create('div', this.wrapper, 'scroll-slide-container');
         this.videoNode = create('video', this.content, 'video-loop');
         
         this.videoNode.setAttribute('playsinline', '');
@@ -27,9 +26,9 @@ export default class VideoLoop{
         this.videoNode.setAttribute('autoplay', '');
         this.videoNode.setAttribute('controlslist', 'nodownload');
         
-        this.videoNode.addEventListener('contextmenu', (e)=>{
-            e.preventDefault();
-        })
+        // this.videoNode.addEventListener('contextmenu', (e)=>{
+        //     e.preventDefault();
+        // })
         
         this.videoSource = create('source', this.videoNode);
         

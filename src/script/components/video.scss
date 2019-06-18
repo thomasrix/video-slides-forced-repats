@@ -2,12 +2,14 @@
     .scroll-slide-wrapper{
         .scroll-slide-container{
             .video-loop{
+                position: absolute;
                 // opacity: 0;
                 width:100vw;
                 height:100vh;
                 object-fit: cover;
             }
             .video-clip{
+                position: absolute;
                 // opacity: 0;
                 width:100vw;
                 height:100vh;

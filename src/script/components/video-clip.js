@@ -4,9 +4,9 @@ import {create, selectAll} from '../utils/trix';
 import {startButton} from './svgs';
 
 export default class VideoClip{
-    constructor(id, wrapper, element, root){
+    constructor(id, content, element, root){
         this.id = id;
-        this.wrapper = wrapper;
+        this.content = content;
         this.element = element;
         this.root = root;
         this.hasVideo = true;
@@ -18,8 +18,6 @@ export default class VideoClip{
         // addNodeListForEach();
     }
     build(){
-        this.content = create('div', this.wrapper, 'scroll-slide-container');
-        // this.content.style.backgroundColor = this.element.color;
         this.videoNode = create('video', this.content, 'video-clip');
         this.videoNode.addEventListener('ended', this.videoEnded.bind(this));
         
