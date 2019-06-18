@@ -33,15 +33,17 @@ export default class QuoteText{
         if(this.firstShow){
             this.firstShow = false;
             let index = 0;
+            let textArray = this.text.split(' ');
             setTimeout(()=>{
                 let int = setInterval(()=>{
-                    if(index < this.text.length){
+                    if(index < textArray.length){
+                        this.textContent.innerHTML += textArray[index] +' ';
                         index ++;
-                        this.textContent.innerHTML = this.text.substr(0, index);
+                        // this.textContent.innerHTML = this.text.substr(0, index);
                     }else{
                         clearInterval(int);
                     }
-                }, 10)
+                }, 70)
             }, 500)
 
         }else{
